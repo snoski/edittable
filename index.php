@@ -4,50 +4,6 @@ session_start();
 	$db = 'trivia';
 	include_once 'includes/connect.php'; //connect.php CONTAINS CONN CODE BUT CREDS IN SEPARATE FILE
 	include_once 'includes/myfuncs.php';
-
-	//runSql($sql, $params = NULL)
-	//$sql as string, $params as array
-	// $quizmaster = runSql('SELECT * FROM users WHERE userID = ?',[1],'assoc');
-	// fred('query result',$quizmaster);
-	// if($quizmaster) {
-	// 	echo 'query result shows as true<br>';
-	// } else {
-	// 	echo 'query result shows as false<br>';
-	// }
-	// $quizmaster = $quizmaster[0]['defLocState'];
-	// if($quizmaster) {
-	// 	echo 'defLocState shows as true<br>';
-	// } else {
-	// 	echo 'defLocState result shows as false<br>';
-	// }
-	// fred('result',$quizmaster);
-
-	/*$sql = 'select * from test';
-	//params:
-	//		$sql as string, 
-	//		optional $params as array (default null), 
-	//		optional $arrayType as string (default 'num' or 'assoc')
-	$prevLocArray = runSql($sql,NULL,'assoc');
-	fred('result',$prevLocArray);
-	$locationStr = "";
-	if($prevLocArray) {
-		$locationStr = "<label for=\"locSelect\">Location</label>";
-		$locationStr .= "<select id=\"locSelect\" onchange=\"setCompany(this);\">";
-		$locationStr .= "<option></option>";
-		$locObjScriptStr = "<script>var locObj = {};\r\n";
-		foreach ($prevLocArray as $val) {
-			$city = $val['city'] ? $val['city'] : '';
-			$state = $val['state'] ? $val['state'] : '';
-			$locationName = $val['locationName'];
-			$locObjScriptStr .= "locObj.$locationName = '$state';\r\n";
-			$locationStr .= "<option>$locationName, $city, $state</option>";
-			// $locationStr .= "<option>$val['locationName']</option>";
-		}
-		$locObjScriptStr .= '</script>';
-		$locationStr .= '<option>--Location Not Listed--</option>';
-		$locationStr .= '</select>';
-	}*/
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,7 +23,6 @@ session_start();
 		</style>
 	</head>
 	<body>
-		<h2>Date Validation Using jQuery Datepicker</h2>
 		<table id="tableId" data="users" style="border: solid black 1px">
 			<colgroup>
 				<col data="userId">
@@ -199,21 +154,6 @@ session_start();
 				// right -	39-----
 				// tab -	9------
 				// esc -	27
-			}
-
-
-			function validate() {
-				var inp = document.getElementById("datepicker");
-				try {
-					console.log('inp.value is ' + inp.value + ' in the try block');
-					throw 'intentional error';
-					console.log('2nd log attept in try');
-				} catch (e) {
-					console.log('inp.value is ' + inp.value + ' in the catch block');
-					throw 'intentional error';
-					console.log('2nd log attept in catch');
-				}
-				console.log('inp.value is ' + inp.value + ' AFTER the catch block');
 			}
 		</script>
 	</body>
