@@ -35,26 +35,26 @@ session_start();
 				<th data-row="0" data-column="2">Last Name</th>
 			</tr>
 			<tr>
-				<td id="dataId1" data-row="1" data-column="0" ondblclick="testFunc(this);"
+				<td id="dataId1" data-row="1" data-column="0" ondblclick="createInput(this);"
 					>1</td>
-				<td data-row="1" data-column="1" ondblclick="testFunc(this);"
+				<td data-row="1" data-column="1" ondblclick="createInput(this);"
 				>Jeff</td>
-				<td id="dataId3"  data-row="1" data-column="2" ondblclick="testFunc(this);"
+				<td id="dataId3"  data-row="1" data-column="2" ondblclick="createInput(this);"
 				>Carter</td>
 			</tr>
 			<tr>
-				<td id="dataId1" data-row="2" data-column="0" ondblclick="testFunc(this);"
+				<td id="dataId1" data-row="2" data-column="0" ondblclick="createInput(this);"
 				>2</td>
-				<td data-row="2" data-column="1" ondblclick="testFunc(this);"
+				<td data-row="2" data-column="1" ondblclick="createInput(this);"
 				>Todd</td>
-				<td id="dataId3" data-row="2" data-column="2" ondblclick="testFunc(this);"
+				<td id="dataId3" data-row="2" data-column="2" ondblclick="createInput(this);"
 				>Payne</td>
 			</tr>
 		</table>
 		<script>
 			var lookupRow;
 			var lookupCol;
-			function testFunc(elem) {
+			function createInput(elem) {
 				lookupRow = elem.dataset.row;
 				lookupCol = elem.dataset.column;
 				var tbl = document.getElementById("tableId");
@@ -92,50 +92,50 @@ session_start();
 					case 40:
 						saveVal();
 						if (lookupRow*1 + 1 <= (maxRows - 1)) {
-							testFunc(tbl.rows[lookupRow*1+1].cells[lookupCol*1]);
+							createInput(tbl.rows[lookupRow*1+1].cells[lookupCol*1]);
 						} else {
-							testFunc(parentTd);
+							createInput(parentTd);
 						}
 						break;
 					case 39:
 						saveVal();
 						if (lookupCol*1 + 1 <= (maxCols - 1)) {
-							testFunc(tbl.rows[lookupRow*1].cells[lookupCol*1+1]);
+							createInput(tbl.rows[lookupRow*1].cells[lookupCol*1+1]);
 						} else {
-							testFunc(parentTd);
+							createInput(parentTd);
 						}
 						break;
 					case 9:
 						if (event.shiftKey) {
 							saveVal();
 							if (lookupCol*1 - 1 >= 0) {
-								testFunc(tbl.rows[lookupRow*1].cells[lookupCol*1-1]);
+								createInput(tbl.rows[lookupRow*1].cells[lookupCol*1-1]);
 							} else {
-								testFunc(parentTd);
+								createInput(parentTd);
 							}
 						} else {
 							saveVal();
 							if (lookupCol*1 + 1 <= (maxCols - 1)) {
-								testFunc(tbl.rows[lookupRow*1].cells[lookupCol*1+1]);
+								createInput(tbl.rows[lookupRow*1].cells[lookupCol*1+1]);
 							} else {
-								testFunc(parentTd);
+								createInput(parentTd);
 							}
 						}
 						break;
 					case 37:
 						saveVal();
 						if (lookupCol*1 - 1 >= 0) {
-							testFunc(tbl.rows[lookupRow*1].cells[lookupCol*1-1]);
+							createInput(tbl.rows[lookupRow*1].cells[lookupCol*1-1]);
 						} else {
-							testFunc(parentTd);
+							createInput(parentTd);
 						}
 						break;
 					case 38:
 						saveVal();
 						if (lookupRow*1 - 1 >= 0) {
-							testFunc(tbl.rows[lookupRow*1-1].cells[lookupCol*1]);
+							createInput(tbl.rows[lookupRow*1-1].cells[lookupCol*1]);
 						} else {
-							testFunc(parentTd);
+							createInput(parentTd);
 						}
 						break;
 					case 27:
